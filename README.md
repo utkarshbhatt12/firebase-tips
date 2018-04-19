@@ -105,3 +105,29 @@ A repository for keeping the notes of everything I learn about Firebase on my jo
     res.status(200).send(new Date());
   });
   ```
+
+* You can use `module.exports {func1, func2, ...};` inside your `index.js` to expose your cloud functions to Firebase.
+
+  If you have multiple functions within your project, you might typically `export` each function as follows:
+
+  ```javascript
+  exports.func1 = functions.https.onRequest((req, res) => {/* do stuff */});
+  exports.func2 = functions.auth.user().onCreate((event) => {/* do stuff */});
+  //.. and so on for as many functions as you want.
+  ```
+
+  The problem with this is that writing and managing exports repeatedly can become quite a hassle. If you ever want to *unpublish* a cloud function, you will need to comment-out, or delete the whole code block containing the function.
+
+  An alternative way that you can follow is to use a `module.exports` block.
+
+  ```javascript
+  const func1 =  functions.https.onRequest((req, res) => {/* do stuff */});
+  const func2 = functions.auth.user().onCreate((event) => {/* do stuff */});
+
+  module.exports =  {
+    func1,
+    func2,
+  }
+  ```
+
+  The benefit of this apporach is that, you can simply remove or comment out the cloud function name from inside the `module.exports` in order to unpublish it. This is faster and less cumbersome than simply commenting out the whole code blocks containing your cloud function code.
