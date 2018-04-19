@@ -14,7 +14,7 @@ A repository for keeping the notes of everything I learn about Firebase on my jo
 
   // initializing the admin sdk using this line in more than once place in the cloud function will result in an error.
   admin.initializeApp(functions.config().firebase); // not allowed more than once
-    ```
+  ```
 
 * If you are modularizing your project (which you obviously should be doing), chances are that you'd need to use Admin SDK's features in multiple files.
 
@@ -100,8 +100,8 @@ A repository for keeping the notes of everything I learn about Firebase on my jo
 
 * To get the server timestamp anytime from the Firebase servers, you can use the an HTTPS `onRequest()` trigger. Here's the minimal code that you can use.
 
-```javascript
-exports.getServerTimestamp = functions.https.onRequest((req, res) => {
-  res.status(200).send(new Date());
-});
-```
+  ```javascript
+  exports.getServerTimestamp = functions.https.onRequest((req, res) => {
+    res.status(200).send(new Date());
+  });
+  ```
