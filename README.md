@@ -20,7 +20,7 @@ A repository for keeping the notes of everything I learn about Firebase on my jo
 
 * But, as we discussed above, you can't initialize it in multiple places. A very simple solution to this is that you can initialize the Admin SDK in a seperate dedicated file and `require('admin');` it in all of your files where you want to use it.
 
-* Initialize the Admin and authorization constructors in the same `admin-init.js` file so that you can simply use the references to the collections in your Database/Firestore/Auth as follows:
+* Initialize the Admin and authorization constructors in the same `admin.js` file so that you can simply use the references to the collections in your Database/Firestore/Auth as follows:
 
   ```javascript
   // admin-init.js
