@@ -1,6 +1,6 @@
 # firebase-tips
 
-A repository for keeping the notes of everything I learn about Firebase on my job @Growthfile.
+A repository for keeping the notes of everything I learn about Firebase on my job [@Growthfile](https://github.com/growthfilev2/).
 
 ## Cloud Functions
 
@@ -124,9 +124,10 @@ A repository for keeping the notes of everything I learn about Firebase on my jo
   const func1 =  functions.https.onRequest((req, res) => {/* do stuff */});
   const func2 = functions.auth.user().onCreate((event) => {/* do stuff */});
 
-  module.exports =  {
+  module.exports = {
     func1,
     func2,
+    // and more...
   }
   ```
 
